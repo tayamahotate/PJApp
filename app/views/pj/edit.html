@@ -1,0 +1,252 @@
+{{set . "title" "一覧画面"}}
+{{template "header.html" .}}
+
+<h1>Book hotel</h1>
+
+<form id="{{.inputDay}}" method="POST" action="/pj/register/{{.inputDay}}">
+
+  {{with $field := field "report.Kotei" .}}
+    <p>
+      <strong>現在の工程</strong>
+      <textarea name="{{$field.Name}}" rows="8" cols="60">{{raw $field.Value}}</textarea>
+      <span class="error">{{$field.Error}}</span>
+    </p>
+  {{end}}
+
+  {{with $field := field "report.Hokoku" .}}
+    <p>
+      <strong>報告</strong>
+      <textarea name="{{$field.Name}}" rows="8" cols="60">{{raw $field.Value}}</textarea>
+      <span class="error">{{$field.Error}}</span>
+    </p>
+  {{end}}
+
+  <h3>今週の作業予定</h3>
+
+  <p>
+    <strong>{{index .days 0}}（月）</strong>
+    {{with $field := field "report.Kadotime1" .}}
+      稼働予定時間
+      <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+      <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo1" .}}
+      <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+  <p>
+    <strong>{{index .days 1}}（火）</strong>
+    {{with $field := field "report.Kadotime2" .}}
+    稼働予定時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo2" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 2}}（水）</strong>
+    {{with $field := field "report.Kadotime3" .}}
+    稼働予定時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo3" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 3}}（木）</strong>
+    {{with $field := field "report.Kadotime4" .}}
+    稼働予定時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo4" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 4}}（金）</strong>
+    {{with $field := field "report.Kadotime5" .}}
+    稼働予定時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo5" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 5}}（土）</strong>
+    {{with $field := field "report.Kadotime6" .}}
+    稼働予定時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo6" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 6}}（日）</strong>
+    {{with $field := field "report.Kadotime7" .}}
+    稼働予定時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo7" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <h3>先週の作業実績</h3>
+
+  <p>
+    <strong>{{index .days 7}}（月）</strong>
+    {{with $field := field "report.Kadotime8" .}}
+    稼働時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo8" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+  <p>
+    <strong>{{index .days 8}}（火）</strong>
+    {{with $field := field "report.Kadotime9" .}}
+    稼働時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo9" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 9}}（水）</strong>
+    {{with $field := field "report.Kadotime10" .}}
+    稼働時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo10" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 10}}（木）</strong>
+    {{with $field := field "report.Kadotime11" .}}
+    稼働時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo11" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 11}}（金）</strong>
+    {{with $field := field "report.Kadotime12" .}}
+    稼働時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo12" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 12}}（土）</strong>
+    {{with $field := field "report.Kadotime13" .}}
+    稼働時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo13" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>{{index .days 13}}（日）</strong>
+    {{with $field := field "report.Kadotime14" .}}
+    稼働予定時間
+    <input type="text" name="{{$field.Name}}" size="5" value="{{$field.Value}}"> 時間
+    <span class="error">{{$field.Error}}</span>
+    {{end}}
+  </p>
+  <p>
+    <strong>作業内容</strong>
+    {{with $field := field "report.Sagyo14" .}}
+    <textarea name="{{$field.Name}}" rows="4" cols="50">{{raw $field.Value}}</textarea>
+    {{end}}
+  </p>
+
+  <p>
+    <strong>【課題･問題】</strong>
+    <textarea name="" rows="8" cols="60">{{raw $.report.Kadai}}</textarea>
+  </p>
+
+  <p>
+    <strong>【その他、相談事項等】</strong>
+    <textarea name="" rows="8" cols="60">{{raw $.report.Other}}</textarea>
+  </p>
+
+  <p class="buttons">
+<a href="javascript:document.getElementById('{{.inputDay}}').submit();">登録</a>
+    <a href="{{url "PJ.Index"}}">戻る</a>
+  </p>
+</form>
+
+{{template "footer.html" .}}

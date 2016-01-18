@@ -1,0 +1,16 @@
+package constant
+
+
+const STATUS_ARI = "0"
+
+const STATUS_NASHI = "9"
+
+const RANGE_REPORT_LIST_BEFORE_DAY = 30
+
+const RANGE_REPORT_LIST_AFTER_DAY = 15
+
+const DATE_TYPE_LAYOUT = "2006/01/02"
+
+const STR_TYPE_LAYOUT = "20060102"
+
+const STR_TIME_DB_LAYOUT = "20060102"

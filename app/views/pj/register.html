@@ -1,0 +1,84 @@
+{{set . "title" "確認画面"}}
+{{template "header.html" .}}
+
+<h1>確認画面</h1>
+
+<form method="POST" action="{{url "PJ.Register"}}">
+  {{with $field := field "report.Kotei" .}}
+    <p>
+      <strong>現在の工程</strong>
+      {{raw $field.Value}}
+    </p>
+  {{end}}
+
+{{with $field := field "report.Hokoku" .}}
+<p>
+  <strong>報告</strong>
+  {{raw $field.Value}}
+</p>
+{{end}}
+
+<h3>今週の作業予定</h3>
+{{if .report.Kadotime1}}
+{{index .days 0}}（月）稼働予定{{.report.Kadotime1}}時間
+<p>{{.report.Sagyo1}}</p>
+{{end}}
+{{if .report.Kadotime2}}
+{{index .days 1}}（火）稼働予定{{.report.Kadotime2}}時間
+<p>{{.report.Sagyo2}}</p>
+{{end}}
+{{if .report.Kadotime3}}
+{{index .days 2}}（水）稼働予定{{.report.Kadotime3}}時間
+<p>{{.report.Sagyo3}}</p>
+{{end}}
+{{if .report.Kadotime4}}
+{{index .days 3}}（木）稼働予定{{.report.Kadotime4}}時間
+<p>{{.report.Sagyo4}}</p>
+{{end}}
+{{if .report.Kadotime5}}
+{{index .days 4}}（金）稼働予定{{.report.Kadotime5}}時間
+<p>{{.report.Sagyo5}}</p>
+{{end}}
+{{if .report.Kadotime6}}
+{{index .days 5}}（土）稼働予定{{.report.Kadotime6}}時間
+<p>{{.report.Sagyo6}}</p>
+{{end}}
+{{if .report.Kadotime7}}
+{{index .days 6}}（日）稼働予定{{.report.Kadotime7}}時間
+<p>{{.report.Sagyo7}}</p>
+{{end}}
+
+<h3>先週の作業予定</h3>
+{{if .report.Kadotime8}}
+{{index .days 7}}（月）稼働{{.report.Kadotime8}}時間
+<p>{{.report.Sagyo8}}</p>
+{{end}}
+{{if .report.Kadotime9}}
+{{index .days 8}}（火）稼働{{.report.Kadotime9}}時間
+<p>{{.report.Sagyo2}}</p>
+{{end}}
+{{if .report.Kadotime9}}
+{{index .days 9}}（水）稼働{{.report.Kadotime10}}時間
+<p>{{.report.Sagyo3}}</p>
+{{end}}
+{{if .report.Kadotime10}}
+{{index .days 10}}（木）稼働{{.report.Kadotime11}}時間
+<p>{{.report.Sagyo4}}</p>
+{{end}}
+{{if .report.Kadotime11}}
+{{index .days 11}}（金）稼働予定{{.report.Kadotime12}}時間
+<p>{{.report.Sagyo5}}</p>
+{{end}}
+{{if .report.Kadotime12}}
+{{index .days 12}}（土）稼働予定{{.report.Kadotime13}}時間
+<p>{{.report.Sagyo6}}</p>
+{{end}}
+{{if .report.Kadotime13}}
+{{index .days 13}}（日）稼働予定{{.report.Kadotime14}}時間
+<p>{{.report.Sagyo7}}</p>
+{{end}}
+
+<a href="{{url "PJ.Index"}}">戻る</a>
+</form>
+
+{{template "footer.html" .}}

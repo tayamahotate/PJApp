@@ -1,0 +1,37 @@
+{{set . "title" "一覧画面"}}
+{{template "header.html" .}}
+
+<h1>PJ報告. 一覧画面</h1>
+
+{{if not .outputReports}}
+<p>現在編集できません</p>
+{{else}}
+<table>
+  <thead>
+  <tr>
+    <th>期間</th>
+    <th>ステータス</th>
+    <th>編集</th>
+    <th>閲覧</th>
+  </tr>
+  </thead>
+  <tbody>
+  {{range .outputReports}}
+  <tr>
+    <td>{{.StartDay.Format "2006/01/02"}} 〜 {{.EndDay.Format "2006/01/02"}}</td>
+    <td>{{.Status}}</td>
+      <td>
+        <form id="{{.StartDay.Format "20060102"}}" method="POST" action="/pj/edit/{{.StartDay.Format "20060102"}}">
+          <a href="javascript:document.getElementById('{{.StartDay.Format "20060102"}}').submit();">編集</a>
+        </form>
+      </td>
+    <td>
+        aaa
+    </td>
+  </tr>
+  {{end}}
+  </tbody>
+</table>
+{{end}}
+
+{{template "footer.html" .}}
